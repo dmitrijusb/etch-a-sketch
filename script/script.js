@@ -5,6 +5,7 @@ const gridContainer = document.querySelector(".grid-container");
 const gridContainerSize = document.querySelector(".grid-container-size");
 //Variables
 let cells;
+console.log(isNaN("5"));
 
 //Functions
 
@@ -12,7 +13,9 @@ let cells;
 function resizeGrid() {
   //Prompt to enter the Grid Size
 
-  cells = parseInt(prompt("Enter number of squares per side:"));
+  do {
+    cells = prompt("Enter number of squares per side:");
+  } while (cells < 0 || cells > 100 || isNaN(cells));
 
   //Checking if container already has any of the div elements (avoid stacking of previously used size)
   if (gridContainer.firstChild) gridContainer.innerHTML = "";
@@ -57,5 +60,5 @@ btnReset.addEventListener("click", resetGrid);
 
 function colorCell(e) {
   console.log(e);
-  e.target.style.background = "blue";
+  e.target.style.background = "black";
 }
