@@ -3,16 +3,16 @@ const btnGrid = document.querySelector(".btn-grid-size");
 const btnReset = document.querySelector(".btn-grid-reset");
 const gridContainer = document.querySelector(".grid-container");
 const gridContainerSize = document.querySelector(".grid-container-size");
-
 //Variables
-let cells = 0;
+let cells;
 
 //Functions
 
 //Function to resize the grid
 function resizeGrid() {
   //Prompt to enter the Grid Size
-  cells = prompt("Enter Grid Size");
+
+  cells = parseInt(prompt("Enter number of squares per side:"));
 
   //Checking if container already has any of the div elements (avoid stacking of previously used size)
   if (gridContainer.firstChild) gridContainer.innerHTML = "";
@@ -30,6 +30,12 @@ function resizeGrid() {
     div.classList.add("cell");
     gridContainer.append(div);
   }
+
+  const cell = document.querySelectorAll(".cell");
+
+  for (let i = 0; i < cell.length; i++) {
+    cell[i].addEventListener("mouseover", colorCell);
+  }
 }
 
 //Function to reset the grid
@@ -45,3 +51,11 @@ function resetGrid() {
 //DOM
 btnGrid.addEventListener("click", resizeGrid);
 btnReset.addEventListener("click", resetGrid);
+// cell.addEventListener("mouseover", function (e) {
+//   console.log(e);
+// });
+
+function colorCell(e) {
+  console.log(e);
+  e.target.style.background = "blue";
+}

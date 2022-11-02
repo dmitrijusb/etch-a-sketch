@@ -47,3 +47,7 @@
 .cell:hover {
   background-color: red;
 }
+
+.cell:focus {
+  background-color: blue;
+}
