@@ -28,6 +28,10 @@
   padding: 2px 5px;
 }
 
+.btn-rgb-active {
+  background-color: green;
+}
+
 /* Grid Section */
 .grid-container {
   width: 400px;
